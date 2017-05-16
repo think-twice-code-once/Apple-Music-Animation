@@ -68,22 +68,14 @@ class Game {
     }
 
     private void createBallsOnTheLeftSide() {
-        for (int i = 1; i <= 10; i++) {
-            if (i > 5) {
-                createBall(new Vec2(LEFT_CIRCLES_X[i - 6], CIRCLES_Y_COORDINATES[1]), null, i);
-            } else {
-                createBall(new Vec2(LEFT_CIRCLES_X[i - 1], CIRCLES_Y_COORDINATES[0]), null, i);
-            }
+        for (int i = 0; i < 5; i++) {
+            createBall(new Vec2(LEFT_CIRCLES_X[i], CIRCLES_Y_COORDINATES[0]), null, i);
         }
     }
 
     private void createBallsOnTheRightSide() {
-        for (int i = 1; i <= 10; i++) {
-            if (i > 5) {
-                createBall(new Vec2(RIGHT_CIRCLES_X[i - 6], CIRCLES_Y_COORDINATES[1]), null, i + 10);
-            } else {
-                createBall(new Vec2(RIGHT_CIRCLES_X[i - 1], CIRCLES_Y_COORDINATES[0]), null, i + 10);
-            }
+        for (int i = 0; i < 5; i++) {
+            createBall(new Vec2(RIGHT_CIRCLES_X[i], CIRCLES_Y_COORDINATES[0]), null, i + 10);
         }
     }
 
@@ -98,7 +90,7 @@ class Game {
         bodyDef.type = BodyType.DYNAMIC;
 
         CircleShape shape = new CircleShape();
-        shape.setRadius(1.3f);
+        shape.setRadius(1.4f);
 
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;

@@ -12,7 +12,6 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 
 
-
 class Texture {
 
     private int mTextureID[] = {0};
@@ -119,6 +118,16 @@ class Texture {
         int y = (bitmap.getHeight() + bounds.height()) / 2;
 
         canvas.drawText(text, x, y, paint);
+
+        Paint paint2 = new Paint();
+        // make stroke smooth
+        paint2.setAntiAlias(true);
+        paint2.setColor(Color.BLUE);
+        paint2.setStyle(Paint.Style.STROKE);
+        paint2.setStrokeWidth(6);
+
+        float radius = bitmap.getWidth() / 2f;
+        canvas.drawCircle(radius, radius, radius - paint2.getStrokeWidth() / 2, paint2);
 
         return bitmap;
     }
